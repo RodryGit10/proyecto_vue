@@ -1,0 +1,50 @@
+{
+  "areas": [
+    {
+      "id": 1,
+      "area": "Unidad de Innovacion y Desarrollo",
+      "encargado": "Rodrigo Carita Aspi",
+      "numeroFuncionarios": 4
+    },
+    {
+      "name": null,
+      "area": "ugs",
+      "encargado": "Omar",
+      "numeroFuncionarios": "100",
+      "id": 2
+    },
+    {
+      "name": null,
+      "area": "Unida Adminitrativa -uaf",
+      "encargado": "Paola",
+      "numeroFuncionarios": "15",
+      "id": 3
+    }
+  ],
+  "activos": [
+    {
+      "tipoActivo": "CPU",
+      "marca": "SAmsung",
+      "modelo": "hdjsdjhsao",
+      "active": true,
+      "areaId": 3,
+      "id": 4
+    },
+    {
+      "tipoActivo": "Monitor",
+      "marca": "DELL 24",
+      "modelo": "p2422h",
+      "active": true,
+      "areaId": 1,
+      "id": 5
+    },
+    {
+      "tipoActivo": "Celular",
+      "marca": "Honor",
+      "modelo": "dsad/1231",
+      "active": true,
+      "areaId": 2,
+      "id": 6
+    }
+  ]
+}
