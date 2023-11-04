@@ -1,13 +1,12 @@
 <template>
     <div class="container">
-        <h5>Categorias</h5>
-
+        <h5>Areas</h5>
         <div class="card">
             <div class="card-content">
                 <form @submit.prevent="agregar()">
                     <h5>Agregar Nueva Area</h5>
                     <p>Area: <input type="text" placeholder="Escribir Area" class="input-con-placeholder"
-                            v-model="payload.area" required /></p>
+                            v-model="payload.unidad" required /></p>
                     <p>Encargado: <input type="text" placeholder="Escribir Nombre del Encargado del Area"
                             class="input-con-placeholder" v-model="payload.encargado" required /></p>
                     <p> Cantidad de Personal<input type="text" placeholder="Escribir Acantidad de funcionarios"
@@ -29,21 +28,6 @@
 
         <div class="card">
             <div class="card-content">
-                <h5>filtros</h5>
-                <div class="input-field ">
-                    <select @change="filter('active', $event.target.value)">
-                        <option value="" selected>todos</option>
-                        <option value="true">activo</option>
-                        <option value="false">inactivo</option>
-                    </select>
-                    <label>Materialize Select</label>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-content">
                 <table>
                     <thead>
                         <tr>
@@ -59,7 +43,7 @@
                     <tbody>
                         <tr v-for="item in items" :key="item.id">
                             <td>{{ item.id }}</td>
-                            <td>{{ item.area }}</td>
+                            <td>{{ item.unidad }}</td>
                             <td>{{ item.encargado }}</td>
                             <td>{{ item.numeroFuncionarios }}</td>
                             <td>
@@ -129,7 +113,6 @@ export default {
         getList() {
             this.axios({
                 method: 'get',
-                //url: this.api + '/areas'
                 url: this.api + '/areas?q='+ this.search
             }).
                 then((response) => {

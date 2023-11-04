@@ -1,7 +1,8 @@
+
 <template>
     <nav>
         <div class="nav-wrapper">
-            <a href="/" class="brand-logo right"></a>
+            <a href="/" class="brand-logo right">Menu</a>
             <ul id="nav-mobile" class="left ">
                 <li>
                     <a class="waves-effect waves-light ">
@@ -16,11 +17,12 @@
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-        <li><router-link to="/">Inicio</router-link></li>
+        <li><router-link to="/nosotro">Nosotros</router-link></li>
         <li><router-link to="/area">Areas</router-link></li>
         <li><router-link to="/activo">Activos</router-link></li>
     </ul>
 </template>
+
 <script>
 import M from "materialize-css";
 export default {
@@ -44,5 +46,6 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
 
+</style>

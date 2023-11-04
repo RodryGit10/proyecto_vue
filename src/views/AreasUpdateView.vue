@@ -1,17 +1,13 @@
 <template>
     <div class="container">
-        <h5>Categorias Editar</h5>
-
+        <h5>Editar Area</h5>
         <div class="card">
             <div class="card-content">
                 <form @submit.prevent="update()">
-                    <p>Area: <input type="text" placeholder="Escribir Area" class="input-con-placeholder"
-                            v-model="payload.area" required /></p>
-                    <p>Encargado: <input type="text" placeholder="Escribir Nombre del Encargado del Area"
-                            class="input-con-placeholder" v-model="payload.encargado" required /></p>
-                    <p> Cantidad de Personal<input type="text" placeholder="Escribir Acantidad de funcionarios"
-                            class="input-con-placeholder" v-model="payload.numeroFuncionarios" required /></p>                    
-                    <button type="submit" class="waves-effect waves-light btn-small" >Editar</button>
+                    <p>Area: <input type="text" v-model="payload.unidad" required /></p>
+                    <p>Encargado: <input type="text" v-model="payload.encargado" required /></p>
+                    <p>Candidad Funcionarios: <input type="text" v-model="payload.numeroFuncionarios" required /></p>
+                    <button type="submit" class="waves-effect waves-light btn-small">Editar</button>
                 </form>
             </div>
         </div>
@@ -21,15 +17,16 @@
 
 <script>
 export default {
-    name: 'AreasUpdateView',
+    name: 'CategoryView',
     data() {
         const api = process.env.VUE_APP_API;
         return {
             api,
             items: [],
             payload: {
-                name: null,
-                active: null
+                unidad: null,
+                encargado: null,
+                numeroFuncionarios: null
             }
         }
     },
@@ -53,12 +50,12 @@ export default {
                     url: this.api + '/areas/' + this.$route.params.id,
                     data: this.payload
                 }).
-                then((response) => {
-                    console.log(response);
-                }).
-                catch((error) => {
-                    console.log(error);
-                });
+                    then((response) => {
+                        console.log(response);
+                    }).
+                    catch((error) => {
+                        console.log(error);
+                    });
                 this.$router.push('/area');
             }
         }

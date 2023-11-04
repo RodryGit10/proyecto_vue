@@ -2,49 +2,99 @@
   "areas": [
     {
       "id": 1,
-      "area": "Unidad de Innovacion y Desarrollo",
+      "unidad": "Unidad de Innovacion y Desarrollo",
       "encargado": "Rodrigo Carita Aspi",
       "numeroFuncionarios": 4
     },
     {
-      "name": null,
-      "area": "ugs",
-      "encargado": "Omar",
-      "numeroFuncionarios": "100",
+      "unidad": "Unidad de Gestion de Servicios ",
+      "encargado": "Omar Rodriguez",
+      "numeroFuncionarios": "8",
       "id": 2
     },
     {
-      "name": null,
-      "area": "Unida Adminitrativa -uaf",
-      "encargado": "Paola",
-      "numeroFuncionarios": "15",
+      "unidad": "Unidad de Gestion de Servicios ",
+      "encargado": "Omar Rodriguez",
+      "numeroFuncionarios": "8",
       "id": 3
+    },
+    {
+      "unidad": "Unidad Adminitrativa Financiera",
+      "encargado": "Paola Eguez",
+      "numeroFuncionarios": "11",
+      "id": 4
+    },
+    {
+      "name": null,
+      "unidad": "Dirección Ejecutiva",
+      "encargado": "Bladimir Magne",
+      "numeroFuncionarios": "3",
+      "id": 5
+    },
+    {
+      "name": null,
+      "unidad": "Unidad de Infraestructura de Servicios - UIS",
+      "encargado": "Jose Luis ",
+      "numeroFuncionarios": "6",
+      "id": 7
     }
   ],
   "activos": [
     {
       "tipoActivo": "CPU",
-      "marca": "SAmsung",
-      "modelo": "hdjsdjhsao",
+      "marca": "Samsung",
+      "modelo": "K-782/2023",
       "active": true,
-      "areaId": 3,
+      "areaId": 1,
+      "id": 2
+    },
+    {
+      "tipoActivo": "Tablet",
+      "marca": "Samsung",
+      "modelo": "tab-2023",
+      "active": true,
+      "areaId": 2,
+      "id": 3
+    },
+    {
+      "tipoActivo": "Tablet 2023",
+      "marca": "Samsung",
+      "modelo": "tab-2023",
+      "active": true,
+      "areaId": 1,
       "id": 4
     },
     {
-      "tipoActivo": "Monitor",
-      "marca": "DELL 24",
-      "modelo": "p2422h",
-      "active": true,
-      "areaId": 1,
-      "id": 5
+      "tipoActivo": "Telefono",
+      "marca": "motorola",
+      "modelo": "mot-2023",
+      "active": false,
+      "areaId": 4,
+      "id": 6
     },
     {
-      "tipoActivo": "Celular",
-      "marca": "Honor",
-      "modelo": "dsad/1231",
+      "tipoActivo": "televisores",
+      "marca": "LG",
+      "modelo": "lg/2023",
+      "active": true,
+      "areaId": 1,
+      "id": 7
+    },
+    {
+      "tipoActivo": "Sillas",
+      "marca": "Trupper",
+      "modelo": "sil-2023",
+      "active": true,
+      "areaId": 3,
+      "id": 8
+    },
+    {
+      "tipoActivo": "Monitor",
+      "marca": "DELL",
+      "modelo": "dell-2023",
       "active": true,
       "areaId": 2,
-      "id": 6
+      "id": 10
     }
   ]
 }

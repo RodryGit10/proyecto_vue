@@ -1,7 +1,7 @@
-
 <template>
     <div class="container">
         <h5>Activos</h5>
+
         <div class="card">
             <div class="card-content">
                 <form @submit.prevent="nuevo()">
@@ -11,8 +11,7 @@
                     <p>Modelo: <input type="text" v-model="payload.modelo" required /></p>
                     <p v-if="areas.length > 0">Areas:
                         <select v-model="payload.areaId">
-                            <option :value="area.id" v-for="area in areas" :key="area.id">{{ area.area
-                            }}</option>
+                            <option :value="area.id" v-for="area in areas" :key="area.id">{{ area.unidad }}</option>
                         </select>
                     </p>
                     <button type="submit" class="waves-effect waves-light btn-small">Agregar</button>
@@ -24,12 +23,11 @@
             <div class="card-content">
                 <form @submit.prevent="getList()">
                     <h5>Buscar Activo</h5>
-                    <p>Nombre Activo: <input type="search" v-model="search" @search="getList()" /></p>
+                    <p>Nombre del Activo: <input type="search" v-model="search" @search="getList()" /></p>
                     <button type="submit" class="waves-effect waves-light btn-small">buscar</button>
                 </form>
             </div>
         </div>
-
 
         <div class="card">
             <div class="card-content">
@@ -42,7 +40,6 @@
                     </select>
                     <label> Seleccionar</label>
                 </div>
-
             </div>
         </div>
 
@@ -55,24 +52,21 @@
                             <th>Nombre Activo</th>
                             <th>Marca</th>
                             <th>Modelo</th>
-                            <th>Estado</th>
                             <th>Area</th>
+                            <th>Estado</th>
                             <th>Eliminar</th>
                             <th>Editar</th>
-                            <th></th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <tr v-for="item in items" :key="item.id">
-                            <td>{{ (item.id - 1) }}</td>
+                            <td>{{ item.id-1 }}</td>
                             <td>{{ item.tipoActivo }}</td>
                             <td>{{ item.marca }}</td>
                             <td>{{ item.modelo }}</td>
+                            <td>{{ item.area.unidad }}</td>
                             <td>{{ item.active ? "activo" : "inactivo" }}</td>
-
-                            <td v-for="area in areas" :key="area.id">{{ area.area }}</td>
-                            <!-- <td>{{ item.category.name }}</td> -->
                             <td>
                                 <a class="app-btn btn-small btn-floating btn-large waves-effect waves-light red"><i
                                         class="material-icons" @click="eliminar(item.id)">delete</i></a>
@@ -89,14 +83,10 @@
     </div>
 </template>
 
-
-
-
-
 <script>
 import M from "materialize-css";
 export default {
-    name: 'ActivosView',
+    name: 'ProductView',
     data() {
         const api = process.env.VUE_APP_API;
         return {
@@ -153,7 +143,7 @@ export default {
         getList() {
             this.axios({
                 method: 'get',
-                url: this.api + '/activos?q=' + this.search + this.toFilter
+                url: this.api + '/activos?_expand=area&q=' + this.search + this.toFilter
             }).
                 then((response) => {
                     this.items = response.data;
@@ -162,10 +152,10 @@ export default {
                     console.log(error);
                 })
         },
-        getActivoList() {
+        getCategoryList() {
             this.axios({
                 method: 'get',
-                url: this.api + '/areas?q='
+                url: this.api + '/areas'
             }).
                 then((response) => {
                     this.areas = response.data;
@@ -181,7 +171,7 @@ export default {
         },
         intSelect() {
             this.getList();
-            this.getActivoList();
+            this.getCategoryList();
             var elems = document.querySelectorAll('select');
             M.FormSelect.init(elems);
         }
@@ -191,7 +181,7 @@ export default {
     },
     mounted() {
         this.getList();
-        this.getActivoList();
+        this.getCategoryList();
         var elems = document.querySelectorAll('select');
         M.FormSelect.init(elems);
     }
